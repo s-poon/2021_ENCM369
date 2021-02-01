@@ -2,10 +2,21 @@ Version 4.0 HI-TECH Software Intermediate Code
 "45585 D:/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h
 [; ;D:/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h: 45585: extern volatile unsigned char LATA __attribute__((address(0x4BE)));
 [v _LATA `Vuc ~T0 @X0 0 e@1214 ]
-[v F183 `(v ~T0 @X0 1 tf1`ul ]
-"12 D:/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\builtins.h
-[v __delay `JF183 ~T0 @X0 0 e ]
-[p i __delay ]
+"45840
+[; ;D:/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h: 45840: extern volatile unsigned char TRISA __attribute__((address(0x4C6)));
+[v _TRISA `Vuc ~T0 @X0 0 e@1222 ]
+"37918
+[; ;D:/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h: 37918: extern volatile unsigned char ANSELA __attribute__((address(0x400)));
+[v _ANSELA `Vuc ~T0 @X0 0 e@1024 ]
+"53900
+[; ;D:/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h: 53900: extern volatile __bit RA7 __attribute__((address(0x2677)));
+[v _RA7 `Vb ~T0 @X0 0 e@9847 ]
+"37 encm369_pic18.c
+[; ;encm369_pic18.c: 37: extern volatile u32 G_u32SystemTime1ms;
+[v _G_u32SystemTime1ms `Vul ~T0 @X0 0 e ]
+"38
+[; ;encm369_pic18.c: 38: extern volatile u32 G_u32SystemTime1s;
+[v _G_u32SystemTime1s `Vul ~T0 @X0 0 e ]
 "30 ./configuration.h
 [p x FEXTOSC  =  OFF     ]
 "31
@@ -2527,54 +2538,69 @@ Version 4.0 HI-TECH Software Intermediate Code
 "47642
 [; ;D:/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h: 47642: __asm("TOSU equ 04FFh");
 [; <" TOSU equ 04FFh ;# ">
-"33 user_app.c
-[; ;user_app.c: 33: volatile u8 G_u8UserAppFlags;
-[v _G_u8UserAppFlags `Vuc ~T0 @X0 1 e ]
-"76
-[; ;user_app.c: 76: void UserAppInitialize(void)
-[v _UserAppInitialize `(v ~T0 @X0 1 ef ]
-"77
-[; ;user_app.c: 77: {
+"70 encm369_pic18.c
+[; ;encm369_pic18.c: 70: void ClockSetup(void)
+[v _ClockSetup `(v ~T0 @X0 1 ef ]
+"71
+[; ;encm369_pic18.c: 71: {
 {
-[e :U _UserAppInitialize ]
+[e :U _ClockSetup ]
 [f ]
-"80
-[; ;user_app.c: 80: }
+"74
+[; ;encm369_pic18.c: 74: }
 [e :UE 2272 ]
 }
-"95
-[; ;user_app.c: 95: void UserAppRun(void)
-[v _UserAppRun `(v ~T0 @X0 1 ef ]
-"96
-[; ;user_app.c: 96: {
+"89
+[; ;encm369_pic18.c: 89: void GpioSetup(void)
+[v _GpioSetup `(v ~T0 @X0 1 ef ]
+"90
+[; ;encm369_pic18.c: 90: {
 {
-[e :U _UserAppRun ]
+[e :U _GpioSetup ]
 [f ]
-"97
-[; ;user_app.c: 97:     for(LATA = 0b000000; LATA <= 0b111111; LATA ++)
-{
+"91
+[; ;encm369_pic18.c: 91:     LATA = 0x00;
 [e = _LATA -> -> 0 `i `uc ]
-[e $ <= -> _LATA `i -> 63 `i 2274  ]
-[e $U 2275  ]
-[e :U 2274 ]
-"98
-[; ;user_app.c: 98:     {
-{
-"99
-[; ;user_app.c: 99:         u32 u32counter = (u32)64000000/4/2;
-[v _u32counter `ul ~T0 @X0 1 a ]
-[e = _u32counter / / -> -> 64000000 `l `ul -> -> -> 4 `i `l `ul -> -> -> 2 `i `l `ul ]
-"100
-[; ;user_app.c: 100:         _delay(u32counter);
-[e ( __delay (1 _u32counter ]
-"101
-[; ;user_app.c: 101:     }
-}
-[e ++ _LATA -> -> 1 `i `Vuc ]
-[e $ <= -> _LATA `i -> 63 `i 2274  ]
-[e :U 2275 ]
-}
-"104
-[; ;user_app.c: 104: }
+"92
+[; ;encm369_pic18.c: 92:     TRISA = 0x00;
+[e = _TRISA -> -> 0 `i `uc ]
+"93
+[; ;encm369_pic18.c: 93:     ANSELA = 0x00;
+[e = _ANSELA -> -> 0 `i `uc ]
+"94
+[; ;encm369_pic18.c: 94:     RA7 = 0x01;
+[e = _RA7 -> -> 1 `i `b ]
+"96
+[; ;encm369_pic18.c: 96: }
 [e :UE 2273 ]
+}
+"111
+[; ;encm369_pic18.c: 111: void SysTickSetup(void)
+[v _SysTickSetup `(v ~T0 @X0 1 ef ]
+"112
+[; ;encm369_pic18.c: 112: {
+{
+[e :U _SysTickSetup ]
+[f ]
+"113
+[; ;encm369_pic18.c: 113:   G_u32SystemTime1ms = 0;
+[e = _G_u32SystemTime1ms -> -> -> 0 `i `l `ul ]
+"114
+[; ;encm369_pic18.c: 114:   G_u32SystemTime1s = 0;
+[e = _G_u32SystemTime1s -> -> -> 0 `i `l `ul ]
+"116
+[; ;encm369_pic18.c: 116: }
+[e :UE 2274 ]
+}
+"133
+[; ;encm369_pic18.c: 133: void SystemSleep(void)
+[v _SystemSleep `(v ~T0 @X0 1 ef ]
+"134
+[; ;encm369_pic18.c: 134: {
+{
+[e :U _SystemSleep ]
+[f ]
+"136
+[; ;encm369_pic18.c: 136: }
+[e :UE 2275 ]
 }

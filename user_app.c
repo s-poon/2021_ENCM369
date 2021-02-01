@@ -76,7 +76,7 @@ Promises:
 void UserAppInitialize(void)
 {
 
-
+    
 } /* end UserAppInitialize() */
 
   
@@ -86,16 +86,67 @@ void UserAppInitialize(void)
 @brief Application code that runs once per system loop
 
 Requires:
-- 
+- NONE
 
 Promises:
-- 
+- A 6-bit counter that will only use RA0-RA5
 
 */
 void UserAppRun(void)
 {
-
-
+    for(u8 i = 0x00; i < 0x40; i ++)
+    {
+        if((0x01 & i) != 0x00)
+        {
+            RA0 = 0x01;
+        }
+        else
+        {
+            RA0 = 0x00;
+        }
+        if((0x02 & i) != 0x00)
+        {
+            RA1 = 0x01;
+        }
+        else
+        {
+            RA1 = 0x00;
+        }
+        if((0x04 & i) != 0x00)
+        {
+            RA2 = 0x01;
+        }
+        else
+        {
+            RA2 = 0x00;
+        }
+        if((0x08 & i) != 0x00)
+        {
+            RA3 = 0x01;
+        }
+        else
+        {
+            RA3 = 0x00;
+        }
+        if((0x10 & i) != 0x00)
+        {
+            RA4 = 0x01;
+        }
+        else
+        {
+            RA4 = 0x00;
+        }
+        if((0x20 & i) != 0x00)
+        {
+            RA5 = 0x01;
+        }
+        else
+        {
+            RA5 = 0x00;
+        }
+        u32 u32counter = FCY/4;
+        _delay(u32counter);
+    }
 } /* end UserAppRun */
 
 

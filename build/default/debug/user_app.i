@@ -1,4 +1,4 @@
-# 1 "encm369_pic18.c"
+# 1 "user_app.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,8 @@
 # 1 "<built-in>" 2
 # 1 "D:/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "encm369_pic18.c" 2
-# 24 "encm369_pic18.c"
+# 1 "user_app.c" 2
+# 26 "user_app.c"
 # 1 "./configuration.h" 1
 # 30 "./configuration.h"
 #pragma config FEXTOSC = OFF
@@ -27290,35 +27290,91 @@ void SystemSleep(void);
 void UserAppInitialize(void);
 void UserAppRun(void);
 # 106 "./configuration.h" 2
-# 24 "encm369_pic18.c" 2
-# 37 "encm369_pic18.c"
+# 26 "user_app.c" 2
+
+
+
+
+
+
+
+volatile u8 G_u8UserAppFlags;
+
+
+
+
 extern volatile u32 G_u32SystemTime1ms;
 extern volatile u32 G_u32SystemTime1s;
 extern volatile u32 G_u32SystemFlags;
-# 70 "encm369_pic18.c"
-void ClockSetup(void)
+# 76 "user_app.c"
+void UserAppInitialize(void)
 {
 
 
 }
-# 89 "encm369_pic18.c"
-void GpioSetup(void)
+# 95 "user_app.c"
+void UserAppRun(void)
 {
-    LATA = 0x00;
-    TRISA = 0x00;
-    ANSELA = 0x00;
 
 
-}
-# 111 "encm369_pic18.c"
-void SysTickSetup(void)
-{
-  G_u32SystemTime1ms = 0;
-  G_u32SystemTime1s = 0;
+    for(u8 i = 0x00; i < 0x40; i ++)
+    {
+        if((0x01 & i) != 0x00)
+        {
+            RA0 = 0x01;
+        }
+        else
+        {
+            RA0 = 0x00;
+        }
+        if((0x02 & i) != 0x00)
+        {
+            RA1 = 0x01;
+        }
+        else
+        {
+            RA1 = 0x00;
+        }
+        if((0x04 & i) != 0x00)
+        {
+            RA2 = 0x01;
+        }
+        else
+        {
+            RA2 = 0x00;
+        }
+        if((0x08 & i) != 0x00)
+        {
+            RA3 = 0x01;
+        }
+        else
+        {
+            RA3 = 0x00;
+        }
+        if((0x10 & i) != 0x00)
+        {
+            RA4 = 0x01;
+        }
+        else
+        {
+            RA4 = 0x00;
+        }
+        if((0x20 & i) != 0x00)
+        {
+            RA5 = 0x01;
+        }
+        else
+        {
+            RA5 = 0x00;
+        }
 
-}
-# 133 "encm369_pic18.c"
-void SystemSleep(void)
-{
+
+
+        u32 u32counter = (u32)64000000/4/4;
+        _delay(u32counter);
+    }
+
+
+
 
 }

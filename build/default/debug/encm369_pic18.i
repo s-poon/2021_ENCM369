@@ -27307,7 +27307,7 @@ void GpioSetup(void)
     LATA = 0x00;
     TRISA = 0x00;
     ANSELA = 0x00;
-
+    RA7 = 0x01;
 
 }
 # 111 "encm369_pic18.c"

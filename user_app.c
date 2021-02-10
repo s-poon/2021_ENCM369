@@ -144,7 +144,7 @@ void UserAppRun(void)
         {
             LATA5 = 0x00;
         }
-        u32 u32counter = FCY/4;
+        u32 u32counter = FCY/4; //creates a delay time of roughly 250ms
         _delay(u32counter);
     }
 } /* end UserAppRun */

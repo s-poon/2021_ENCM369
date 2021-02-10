@@ -48,18 +48,20 @@
 [v _LATA LATA `VEuc  1 e 1 @1214 ]
 "45840
 [v _TRISA TRISA `VEuc  1 e 1 @1222 ]
-"53732
-[v _RA0 RA0 `VEb  1 e 0 @9840 ]
+"52160
+[v _LATA0 LATA0 `VEb  1 e 0 @9712 ]
+"52163
+[v _LATA1 LATA1 `VEb  1 e 0 @9713 ]
+"52166
+[v _LATA2 LATA2 `VEb  1 e 0 @9714 ]
+"52169
+[v _LATA3 LATA3 `VEb  1 e 0 @9715 ]
+"52172
+[v _LATA4 LATA4 `VEb  1 e 0 @9716 ]
+"52175
+[v _LATA5 LATA5 `VEb  1 e 0 @9717 ]
 "53756
 [v _RA1 RA1 `VEb  1 e 0 @9841 ]
-"53780
-[v _RA2 RA2 `VEb  1 e 0 @9842 ]
-"53804
-[v _RA3 RA3 `VEb  1 e 0 @9843 ]
-"53828
-[v _RA4 RA4 `VEb  1 e 0 @9844 ]
-"53852
-[v _RA5 RA5 `VEb  1 e 0 @9845 ]
 "53900
 [v _RA7 RA7 `VEb  1 e 0 @9847 ]
 "14 D:\GitHub\2021_ENCM369\main.c
@@ -78,9 +80,9 @@
 "95 D:\GitHub\2021_ENCM369\user_app.c
 [v _UserAppRun UserAppRun `(v  1 e 1 0 ]
 {
-"99
+"97
 [v UserAppRun@i i `uc  1 a 1 6 ]
-"159
+"150
 } 0
 "76
 [v _UserAppInitialize UserAppInitialize `(v  1 e 1 0 ]

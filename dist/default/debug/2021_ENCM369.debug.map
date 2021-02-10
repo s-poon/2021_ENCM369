@@ -5,7 +5,7 @@ Linker command line:
 -W-3 --edf=D:\Microchip\xc8\v2_31\pic\dat\en_msgs.txt -cn \
   -h+dist/default/debug\2021_ENCM369.debug.sym \
   --cmf=dist/default/debug\2021_ENCM369.debug.cmf -z -Q18F27Q43 \
-  -oC:\Users\Me\AppData\Local\Temp\sb5o.2 --defsym=__MPLAB_BUILD=1 \
+  -oC:\Users\Me\AppData\Local\Temp\secs.2 --defsym=__MPLAB_BUILD=1 \
   -Mdist/default/debug/2021_ENCM369.debug.map -E1 -ver=XC8 Compiler \
   --acfsm=1493 -ASTACK=0560h-025FFh -pstack=STACK -ACODE=00h-01FFFFh \
   -ACONST=00h-01FFFFh -ASMALLCONST=02600h-026FFhx474 \
@@ -31,7 +31,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\Me\AppData\Local\Temp\sb5o.o \
+  C:\Users\Me\AppData\Local\Temp\secs.o \
   dist/default/debug\2021_ENCM369.debug.o 
 
 Object code version is 3.11
@@ -41,7 +41,7 @@ Machine type is 18F27Q43
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Me\AppData\Local\Temp\sb5o.o
+C:\Users\Me\AppData\Local\Temp\secs.o
                 idloc                            200000   200000       20        0       5
                 config                           300000   300000        A        0       4
                 init                              1FFFC    1FFFC        4     FFFE       0
@@ -246,12 +246,13 @@ _G_u32SystemTime1s          bssCOMRAM    000505
 _G_u8UserAppFlags           bssCOMRAM    00050D
 _GpioSetup                  text5        01FEE0
 _LATA                       (abs)        0004BE
-_RA0                        (abs)        002670
+_LATA0                      (abs)        0025F0
+_LATA1                      (abs)        0025F1
+_LATA2                      (abs)        0025F2
+_LATA3                      (abs)        0025F3
+_LATA4                      (abs)        0025F4
+_LATA5                      (abs)        0025F5
 _RA1                        (abs)        002671
-_RA2                        (abs)        002672
-_RA3                        (abs)        002673
-_RA4                        (abs)        002674
-_RA5                        (abs)        002675
 _RA7                        (abs)        002677
 _SysTickSetup               text4        01FF04
 _SystemSleep                text3        01FEDC

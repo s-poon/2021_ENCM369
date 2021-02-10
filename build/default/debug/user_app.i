@@ -27315,17 +27315,15 @@ void UserAppInitialize(void)
 # 95 "user_app.c"
 void UserAppRun(void)
 {
-
-
     for(u8 i = 0x00; i < 0x40; i ++)
     {
         if((0x01 & i) != 0x00)
         {
-            RA0 = 0x01;
+            LATA0 = 0x01;
         }
         else
         {
-            RA0 = 0x00;
+            LATA0 = 0x00;
         }
         if((0x02 & i) != 0x00)
         {
@@ -27333,48 +27331,41 @@ void UserAppRun(void)
         }
         else
         {
-            RA1 = 0x00;
+            LATA1 = 0x00;
         }
         if((0x04 & i) != 0x00)
         {
-            RA2 = 0x01;
+            LATA2 = 0x01;
         }
         else
         {
-            RA2 = 0x00;
+            LATA2 = 0x00;
         }
         if((0x08 & i) != 0x00)
         {
-            RA3 = 0x01;
+            LATA3 = 0x01;
         }
         else
         {
-            RA3 = 0x00;
+            LATA3 = 0x00;
         }
         if((0x10 & i) != 0x00)
         {
-            RA4 = 0x01;
+            LATA4 = 0x01;
         }
         else
         {
-            RA4 = 0x00;
+            LATA4 = 0x00;
         }
         if((0x20 & i) != 0x00)
         {
-            RA5 = 0x01;
+            LATA5 = 0x01;
         }
         else
         {
-            RA5 = 0x00;
+            LATA5 = 0x00;
         }
-
-
-
         u32 u32counter = (u32)64000000/4/4;
         _delay(u32counter);
     }
-
-
-
-
 }

@@ -3,12 +3,12 @@ Microchip MPLAB XC8 Compiler V2.31
 Linker command line:
 
 -W-3 --edf=D:\Microchip\xc8\v2_31\pic\dat\en_msgs.txt -cn \
-  -h+dist/default/production\2021_ENCM369.production.sym \
-  --cmf=dist/default/production\2021_ENCM369.production.cmf -z -Q18F27Q43 \
-  -oC:\Users\Me\AppData\Local\Temp\saqo.2 --defsym=__MPLAB_BUILD=1 \
-  -Mdist/default/production/2021_ENCM369.production.map -E1 \
-  -ver=XC8 Compiler --acfsm=1493 -ASTACK=0560h-025FFh -pstack=STACK \
-  -ACODE=00h-01FFFFh -ACONST=00h-01FFFFh -ASMALLCONST=02600h-026FFhx474 \
+  -h+dist/default/debug\2021_ENCM369.debug.sym \
+  --cmf=dist/default/debug\2021_ENCM369.debug.cmf -z -Q18F27Q43 \
+  -oC:\Users\Me\AppData\Local\Temp\scrk.2 --defsym=__MPLAB_BUILD=1 \
+  -Mdist/default/debug/2021_ENCM369.debug.map -E1 -ver=XC8 Compiler \
+  --acfsm=1493 -ASTACK=0560h-025FFh -pstack=STACK -ACODE=00h-01FFFFh \
+  -ACONST=00h-01FFFFh -ASMALLCONST=02600h-026FFhx474 \
   -AMEDIUMCONST=02600h-0FFFFh,012600h-01FFFFh -ACOMRAM=0501h-055Fh \
   -AABS1=0500h-025FFh -ABIGRAM=0501h-025FFh \
   -ARAM=0560h-05FFh,0600h-06FFhx32 -ABANK5=0560h-05FFh -ABANK6=0600h-06FFh \
@@ -31,8 +31,8 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\Me\AppData\Local\Temp\saqo.o \
-  dist/default/production\2021_ENCM369.production.o 
+  C:\Users\Me\AppData\Local\Temp\scrk.o \
+  dist/default/debug\2021_ENCM369.debug.o 
 
 Object code version is 3.11
 
@@ -41,24 +41,24 @@ Machine type is 18F27Q43
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\Me\AppData\Local\Temp\saqo.o
+C:\Users\Me\AppData\Local\Temp\scrk.o
                 idloc                            200000   200000       20        0       5
                 config                           300000   300000        A        0       4
                 init                              1FFFC    1FFFC        4     FFFE       0
                 reset_vec                             0        0        4        0       0
-dist/default/production\2021_ENCM369.production.o
+dist/default/debug\2021_ENCM369.debug.o
                 idloc                            200000   200000       20        0       5
                 config                           300000   300000        A        0       4
-                text6                             1FED2    1FED2        2     FF69       0
-                text5                             1FEEA    1FEEA       1E     FF75       0
-                text4                             1FF08    1FF08       22     FF84       0
-                text3                             1FED4    1FED4        2     FF6A       0
-                text2                             1FED6    1FED6        2     FF6B       0
-                text1                             1FF4C    1FF4C       B0     FFA6       0
-                text0                             1FF2A    1FF2A       22     FF95       0
-                cstackCOMRAM                        50E      50E        4      501       1
+                text6                             1FEB6    1FEB6        2     FF5B       0
+                text5                             1FECE    1FECE       1E     FF67       0
+                text4                             1FEEC    1FEEC       22     FF76       0
+                text3                             1FEB8    1FEB8        2     FF5C       0
+                text2                             1FEBA    1FEBA        2     FF5D       0
+                text1                             1FF30    1FF30       CC     FF98       0
+                text0                             1FF0E    1FF0E       22     FF87       0
+                cstackCOMRAM                        50E      50E        6      501       1
                 bssCOMRAM                           501      501        D      501       1
-                cinit                             1FED8    1FED8       12     FF6C       0
+                cinit                             1FEBC    1FEBC       12     FF5E       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
@@ -66,14 +66,14 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   CODE           
                 init                              1FFFC    1FFFC        4         0
                 reset_vec                             0        0        4         0
-                text6                             1FED2    1FED2        2         0
-                text5                             1FEEA    1FEEA       1E         0
-                text4                             1FF08    1FF08       22         0
-                text3                             1FED4    1FED4        2         0
-                text2                             1FED6    1FED6        2         0
-                text1                             1FF4C    1FF4C       B0         0
-                text0                             1FF2A    1FF2A       22         0
-                cinit                             1FED8    1FED8       12         0
+                text6                             1FEB6    1FEB6        2         0
+                text5                             1FECE    1FECE       1E         0
+                text4                             1FEEC    1FEEC       22         0
+                text3                             1FEB8    1FEB8        2         0
+                text2                             1FEBA    1FEBA        2         0
+                text1                             1FF30    1FF30       CC         0
+                text0                             1FF0E    1FF0E       22         0
+                cinit                             1FEBC    1FEBC       12         0
 
         CLASS   CONST          
 
@@ -82,7 +82,7 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   MEDIUMCONST    
 
         CLASS   COMRAM         
-                cstackCOMRAM                        50E      50E        4         1
+                cstackCOMRAM                        50E      50E        6         1
                 bssCOMRAM                           501      501        D         1
 
         CLASS   ABS1           
@@ -174,15 +174,15 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
 
                 reset_vec                      000000  000004  000004         0       0  CODE    
-                bssCOMRAM                      000501  000011  000512       501       1  COMRAM  
-                text6                          01FED2  000002  01FED4      FF69       0  CODE    
-                text3                          01FED4  000002  01FED6      FF6A       0  CODE    
-                text2                          01FED6  000002  01FED8      FF6B       0  CODE    
-                cinit                          01FED8  000012  01FEEA      FF6C       0  CODE    
-                text5                          01FEEA  00001E  01FF08      FF75       0  CODE    
-                text4                          01FF08  000022  01FF2A      FF84       0  CODE    
-                text0                          01FF2A  000022  01FF4C      FF95       0  CODE    
-                text1                          01FF4C  0000B0  01FFFC      FFA6       0  CODE    
+                bssCOMRAM                      000501  000013  000514       501       1  COMRAM  
+                text6                          01FEB6  000002  01FEB8      FF5B       0  CODE    
+                text3                          01FEB8  000002  01FEBA      FF5C       0  CODE    
+                text2                          01FEBA  000002  01FEBC      FF5D       0  CODE    
+                cinit                          01FEBC  000012  01FECE      FF5E       0  CODE    
+                text5                          01FECE  00001E  01FEEC      FF67       0  CODE    
+                text4                          01FEEC  000022  01FF0E      FF76       0  CODE    
+                text0                          01FF0E  000022  01FF30      FF87       0  CODE    
+                text1                          01FF30  0000CC  01FFFC      FF98       0  CODE    
                 init                           01FFFC  000004  020000      FFFE       0  CODE    
 
 
@@ -222,30 +222,30 @@ UNUSED ADDRESS RANGES
         BANK7            000700-0007FF              100
         BANK8            000800-0008FF              100
         BANK9            000900-0009FF              100
-        BIGRAM           000512-0025FF             20EE
-        CODE             000004-01FED1            1FECE
-        COMRAM           000512-00055F               4E
+        BIGRAM           000514-0025FF             20EC
+        CODE             000004-01FEB5            1FEB2
+        COMRAM           000514-00055F               4C
         CONFIG           30000A-300011                8
-        CONST            000004-01FED1            1FECE
+        CONST            000004-01FEB5            1FEB2
         EEDATA           380000-3803FF              400
         MEDIUMCONST      002600-00FFFF             DA00
-                         012600-01FED1             D8D2
+                         012600-01FEB5             D8B6
         RAM              000560-0025FF              100
         SFR              000000-0004FF              100
-        SMALLCONST       002600-01FED1              100
+        SMALLCONST       002600-01FEB5              100
         STACK            000560-0025FF             20A0
 
                                   Symbol Table
 
-UserAppRun@u32Counter       cstackCOMRAM 00050E
+UserAppRun@u32Counter       cstackCOMRAM 000510
 _ANSELA                     (abs)        000400
 _ANSELB                     (abs)        000408
-_ClockSetup                 text6        01FED2
+_ClockSetup                 text6        01FEB6
 _G_u32SystemFlags           bssCOMRAM    000501
 _G_u32SystemTime1ms         bssCOMRAM    000509
 _G_u32SystemTime1s          bssCOMRAM    000505
 _G_u8UserAppFlags           bssCOMRAM    00050D
-_GpioSetup                  text5        01FEEA
+_GpioSetup                  text5        01FECE
 _LATA                       (abs)        0004BE
 _LATA0                      (abs)        0025F0
 _LATA1                      (abs)        0025F1
@@ -257,12 +257,12 @@ _LATB                       (abs)        0004BF
 _RA1                        (abs)        002671
 _RA7                        (abs)        002677
 _RB5                        (abs)        00267D
-_SysTickSetup               text4        01FF08
-_SystemSleep                text3        01FED4
+_SysTickSetup               text4        01FEEC
+_SystemSleep                text3        01FEB8
 _TRISA                      (abs)        0004C6
 _TRISB                      (abs)        0004C7
-_UserAppInitialize          text2        01FED6
-_UserAppRun                 text1        01FF4C
+_UserAppInitialize          text2        01FEBA
+_UserAppRun                 text1        01FF30
 __HRAM                      (abs)        000000
 __Habs1                     abs1         000000
 __Hbank10                   bank10       000000
@@ -336,7 +336,7 @@ __Hrparam                   rparam       000000
 __Hsfr                      sfr          000000
 __Hsmallconst               smallconst   000000
 __Hspace_0                  (abs)        020000
-__Hspace_1                  (abs)        000512
+__Hspace_1                  (abs)        000514
 __Hspace_2                  (abs)        000000
 __Hspace_4                  (abs)        60000A
 __Hstack                    stack        000000
@@ -438,7 +438,7 @@ __Ltext4                    text4        000000
 __Ltext5                    text5        000000
 __Ltext6                    text6        000000
 __S0                        (abs)        020000
-__S1                        (abs)        000512
+__S1                        (abs)        000514
 __S2                        (abs)        000000
 __S4                        (abs)        000000
 __S5                        (abs)        000000
@@ -449,26 +449,26 @@ ___rparam_used              (abs)        000001
 ___sp                       stack        000000
 __accesstop                 (abs)        000560
 __activetblptr              (abs)        000000
-__end_of_ClockSetup         text6        01FED4
-__end_of_GpioSetup          text5        01FF08
-__end_of_SysTickSetup       text4        01FF2A
-__end_of_SystemSleep        text3        01FED6
-__end_of_UserAppInitialize  text2        01FED8
+__end_of_ClockSetup         text6        01FEB8
+__end_of_GpioSetup          text5        01FEEC
+__end_of_SysTickSetup       text4        01FF0E
+__end_of_SystemSleep        text3        01FEBA
+__end_of_UserAppInitialize  text2        01FEBC
 __end_of_UserAppRun         text1        01FFFC
-__end_of__initialization    cinit        01FEE4
-__end_of_main               text0        01FF4C
-__initialization            cinit        01FED8
+__end_of__initialization    cinit        01FEC8
+__end_of_main               text0        01FF30
+__initialization            cinit        01FEBC
 __mediumconst               mediumconst  000000
 __pbssCOMRAM                bssCOMRAM    000501
-__pcinit                    cinit        01FED8
+__pcinit                    cinit        01FEBC
 __pcstackCOMRAM             cstackCOMRAM 00050E
-__ptext0                    text0        01FF2A
-__ptext1                    text1        01FF4C
-__ptext2                    text2        01FED6
-__ptext3                    text3        01FED4
-__ptext4                    text4        01FF08
-__ptext5                    text5        01FEEA
-__ptext6                    text6        01FED2
+__ptext0                    text0        01FF0E
+__ptext1                    text1        01FF30
+__ptext2                    text2        01FEBA
+__ptext3                    text3        01FEB8
+__ptext4                    text4        01FEEC
+__ptext5                    text5        01FECE
+__ptext6                    text6        01FEB6
 __ramtop                    ramtop       002600
 __size_of_ClockSetup        (abs)        000000
 __size_of_GpioSetup         (abs)        000000
@@ -478,8 +478,8 @@ __size_of_UserAppInitialize (abs)        000000
 __size_of_UserAppRun        (abs)        000000
 __size_of_main              (abs)        000000
 __smallconst                smallconst   000000
-_main                       text0        01FF2A
-end_of_initialization       cinit        01FEE4
+_main                       text0        01FF0E
+end_of_initialization       cinit        01FEC8
 intlevel0                   text         000000
 intlevel1                   text         000000
 intlevel2                   text         000000
@@ -487,7 +487,7 @@ intlevel3                   text         000000
 stackhi                     (abs)        0025FF
 stacklo                     (abs)        000560
 start                       init         01FFFC
-start_initialization        cinit        01FED8
+start_initialization        cinit        01FEBC
 
 
 FUNCTION INFORMATION:
@@ -532,7 +532,7 @@ Total ram usage:        0 bytes
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
-  u32Counter      4    0[COMRAM] unsigned long 
+  u32Counter      4    2[COMRAM] unsigned long 
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
@@ -544,9 +544,9 @@ Total ram usage:        0 bytes
  Data sizes:     COMRAM   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15  BANK16  BANK17  BANK18  BANK19  BANK20  BANK21  BANK22  BANK23  BANK24  BANK25  BANK26  BANK27  BANK28  BANK29  BANK30  BANK31  BANK32  BANK33  BANK34  BANK35  BANK36  BANK37
       Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
       Locals:         4       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Totals:         4       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-Total ram usage:        4 bytes
+      Temps:          2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         6       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        6 bytes
  Hardware stack levels used:    1
  This function calls:
 		Nothing
@@ -705,26 +705,26 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 encm369_pic18.c
-		_GpioSetup     		CODE           	1FEEA	0000	30
-		_SystemSleep   		CODE           	1FED4	0000	2
-		_SysTickSetup  		CODE           	1FF08	0000	34
-		_ClockSetup    		CODE           	1FED2	0000	2
+		_GpioSetup     		CODE           	1FECE	0000	30
+		_SystemSleep   		CODE           	1FEB8	0000	2
+		_SysTickSetup  		CODE           	1FEEC	0000	34
+		_ClockSetup    		CODE           	1FEB6	0000	2
 
 encm369_pic18.c estimated size: 68
 
 shared
-		__initialization		CODE           	1FED8	0000	12
+		__initialization		CODE           	1FEBC	0000	12
 
 shared estimated size: 12
 
 main.c
-		_main          		CODE           	1FF2A	0000	34
+		_main          		CODE           	1FF0E	0000	34
 
 main.c estimated size: 34
 
 user_app.c
-		_UserAppRun    		CODE           	1FF4C	0000	176
-		_UserAppInitialize		CODE           	1FED6	0000	2
+		_UserAppRun    		CODE           	1FF30	0000	204
+		_UserAppInitialize		CODE           	1FEBA	0000	2
 
-user_app.c estimated size: 178
+user_app.c estimated size: 206
 

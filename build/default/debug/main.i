@@ -1,4 +1,4 @@
-# 1 "user_app.c"
+# 1 "main.c"
 # 1 "<built-in>" 1
 # 1 "<built-in>" 3
 # 288 "<built-in>" 3
@@ -6,8 +6,12 @@
 # 1 "<built-in>" 2
 # 1 "D:/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\\pic\\include\\language_support.h" 1 3
 # 2 "<built-in>" 2
-# 1 "user_app.c" 2
-# 26 "user_app.c"
+# 1 "main.c" 2
+
+
+
+
+
 # 1 "./configuration.h" 1
 # 30 "./configuration.h"
 #pragma config FEXTOSC = OFF
@@ -27290,7 +27294,7 @@ void SystemSleep(void);
 void UserAppInitialize(void);
 void UserAppRun(void);
 # 106 "./configuration.h" 2
-# 26 "user_app.c" 2
+# 6 "main.c" 2
 
 
 
@@ -27298,74 +27302,41 @@ void UserAppRun(void);
 
 
 
-volatile u8 G_u8UserAppFlags;
 
-
-
-
-extern volatile u32 G_u32SystemTime1ms;
-extern volatile u32 G_u32SystemTime1s;
-extern volatile u32 G_u32SystemFlags;
-# 76 "user_app.c"
-void UserAppInitialize(void)
+volatile u32 G_u32SystemTime1ms = 0;
+volatile u32 G_u32SystemTime1s = 0;
+volatile u32 G_u32SystemFlags = 0;
+# 35 "main.c"
+void main(void)
 {
+  G_u32SystemFlags |= (u32)0x80000000;
 
 
-}
-# 95 "user_app.c"
-void UserAppRun(void)
-{
-    u32 u32Counter = 0;
-    if(RB5 == 0x01)
-    {
-        u32Counter ++;
-        if((0x01 & u32Counter) != 0x00)
-        {
-            LATA0 = 0x01;
-        }
-        else
-        {
-            LATA0 = 0x00;
-        }
-        if((0x02 & u32Counter) != 0x00)
-        {
-            RA1 = 0x01;
-        }
-        else
-        {
-            LATA1 = 0x00;
-        }
-        if((0x04 & u32Counter) != 0x00)
-        {
-            LATA2 = 0x01;
-        }
-        else
-        {
-            LATA2 = 0x00;
-        }
-        if((0x08 & u32Counter) != 0x00)
-        {
-            LATA3 = 0x01;
-        }
-        else
-        {
-            LATA3 = 0x00;
-        }
-        if((0x10 & u32Counter) != 0x00)
-        {
-            LATA4 = 0x01;
-        }
-        else
-        {
-            LATA4 = 0x00;
-        }
-        if((0x20 & u32Counter) != 0x00)
-        {
-            LATA5 = 0x01;
-        }
-        else
-        {
-            LATA5 = 0x00;
-        }
-    }
+  ClockSetup();
+  SysTickSetup();
+  GpioSetup();
+
+
+
+
+  UserAppInitialize();
+
+
+
+
+  while(1)
+  {
+
+
+
+    UserAppRun();
+
+
+
+                   ;
+    SystemSleep();
+                  ;
+
+  }
+
 }

@@ -1,28 +1,23 @@
 Version 4.0 HI-TECH Software Intermediate Code
-"54044 D:/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h
-[; ;D:/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h: 54044: extern volatile __bit RB5 __attribute__((address(0x267D)));
-[v _RB5 `Vb ~T0 @X0 0 e@9853 ]
-"52160
-[; ;D:/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h: 52160: extern volatile __bit LATA0 __attribute__((address(0x25F0)));
-[v _LATA0 `Vb ~T0 @X0 0 e@9712 ]
-"53756
-[; ;D:/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h: 53756: extern volatile __bit RA1 __attribute__((address(0x2671)));
-[v _RA1 `Vb ~T0 @X0 0 e@9841 ]
-"52163
-[; ;D:/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h: 52163: extern volatile __bit LATA1 __attribute__((address(0x25F1)));
-[v _LATA1 `Vb ~T0 @X0 0 e@9713 ]
-"52166
-[; ;D:/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h: 52166: extern volatile __bit LATA2 __attribute__((address(0x25F2)));
-[v _LATA2 `Vb ~T0 @X0 0 e@9714 ]
-"52169
-[; ;D:/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h: 52169: extern volatile __bit LATA3 __attribute__((address(0x25F3)));
-[v _LATA3 `Vb ~T0 @X0 0 e@9715 ]
-"52172
-[; ;D:/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h: 52172: extern volatile __bit LATA4 __attribute__((address(0x25F4)));
-[v _LATA4 `Vb ~T0 @X0 0 e@9716 ]
-"52175
-[; ;D:/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h: 52175: extern volatile __bit LATA5 __attribute__((address(0x25F5)));
-[v _LATA5 `Vb ~T0 @X0 0 e@9717 ]
+[p mainexit ]
+"60 ./encm369_pic18.h
+[; ;./encm369_pic18.h: 60: void ClockSetup(void);
+[v _ClockSetup `(v ~T0 @X0 0 ef ]
+"63
+[; ;./encm369_pic18.h: 63: void SysTickSetup(void);
+[v _SysTickSetup `(v ~T0 @X0 0 ef ]
+"61
+[; ;./encm369_pic18.h: 61: void GpioSetup(void);
+[v _GpioSetup `(v ~T0 @X0 0 ef ]
+"27 ./user_app.h
+[; ;./user_app.h: 27: void UserAppInitialize(void);
+[v _UserAppInitialize `(v ~T0 @X0 0 ef ]
+"28
+[; ;./user_app.h: 28: void UserAppRun(void);
+[v _UserAppRun `(v ~T0 @X0 0 ef ]
+"64 ./encm369_pic18.h
+[; ;./encm369_pic18.h: 64: void SystemSleep(void);
+[v _SystemSleep `(v ~T0 @X0 0 ef ]
 "30 ./configuration.h
 [p x FEXTOSC  =  OFF     ]
 "31
@@ -2544,203 +2539,67 @@ Version 4.0 HI-TECH Software Intermediate Code
 "47642
 [; ;D:/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h: 47642: __asm("TOSU equ 04FFh");
 [; <" TOSU equ 04FFh ;# ">
-"33 user_app.c
-[; ;user_app.c: 33: volatile u8 G_u8UserAppFlags;
-[v _G_u8UserAppFlags `Vuc ~T0 @X0 1 e ]
-"76
-[; ;user_app.c: 76: void UserAppInitialize(void)
-[v _UserAppInitialize `(v ~T0 @X0 1 ef ]
-"77
-[; ;user_app.c: 77: {
+"14 main.c
+[; ;main.c: 14: volatile u32 G_u32SystemTime1ms = 0;
+[v _G_u32SystemTime1ms `Vul ~T0 @X0 1 e ]
+[i _G_u32SystemTime1ms
+-> -> -> 0 `i `l `ul
+]
+"15
+[; ;main.c: 15: volatile u32 G_u32SystemTime1s = 0;
+[v _G_u32SystemTime1s `Vul ~T0 @X0 1 e ]
+[i _G_u32SystemTime1s
+-> -> -> 0 `i `l `ul
+]
+"16
+[; ;main.c: 16: volatile u32 G_u32SystemFlags = 0;
+[v _G_u32SystemFlags `Vul ~T0 @X0 1 e ]
+[i _G_u32SystemFlags
+-> -> -> 0 `i `l `ul
+]
+[v $root$_main `(v ~T0 @X0 0 e ]
+"35
+[; ;main.c: 35: void main(void)
+[v _main `(v ~T0 @X0 1 ef ]
+"36
+[; ;main.c: 36: {
 {
-[e :U _UserAppInitialize ]
+[e :U _main ]
 [f ]
-"80
-[; ;user_app.c: 80: }
-[e :UE 2272 ]
-}
-"95
-[; ;user_app.c: 95: void UserAppRun(void)
-[v _UserAppRun `(v ~T0 @X0 1 ef ]
-"96
-[; ;user_app.c: 96: {
-{
-[e :U _UserAppRun ]
-[f ]
-"97
-[; ;user_app.c: 97:     u32 u32Counter = 0;
-[v _u32Counter `ul ~T0 @X0 1 a ]
-[e = _u32Counter -> -> -> 0 `i `l `ul ]
-"98
-[; ;user_app.c: 98:     if(RB5 == 0x01)
-[e $ ! == -> _RB5 `i -> 1 `i 2274  ]
-"99
-[; ;user_app.c: 99:     {
-{
-"100
-[; ;user_app.c: 100:         u32Counter ++;
-[e ++ _u32Counter -> -> -> 1 `i `l `ul ]
-"101
-[; ;user_app.c: 101:         if((0x01 & u32Counter) != 0x00)
-[e $ ! != & -> -> -> 1 `i `l `ul _u32Counter -> -> -> 0 `i `l `ul 2275  ]
-"102
-[; ;user_app.c: 102:         {
-{
-"103
-[; ;user_app.c: 103:             LATA0 = 0x01;
-[e = _LATA0 -> -> 1 `i `b ]
-"104
-[; ;user_app.c: 104:         }
-}
-[e $U 2276  ]
-"105
-[; ;user_app.c: 105:         else
-[e :U 2275 ]
-"106
-[; ;user_app.c: 106:         {
-{
-"107
-[; ;user_app.c: 107:             LATA0 = 0x00;
-[e = _LATA0 -> -> 0 `i `b ]
-"108
-[; ;user_app.c: 108:         }
-}
-[e :U 2276 ]
-"109
-[; ;user_app.c: 109:         if((0x02 & u32Counter) != 0x00)
-[e $ ! != & -> -> -> 2 `i `l `ul _u32Counter -> -> -> 0 `i `l `ul 2277  ]
-"110
-[; ;user_app.c: 110:         {
-{
-"111
-[; ;user_app.c: 111:             RA1 = 0x01;
-[e = _RA1 -> -> 1 `i `b ]
-"112
-[; ;user_app.c: 112:         }
-}
-[e $U 2278  ]
-"113
-[; ;user_app.c: 113:         else
-[e :U 2277 ]
-"114
-[; ;user_app.c: 114:         {
-{
-"115
-[; ;user_app.c: 115:             LATA1 = 0x00;
-[e = _LATA1 -> -> 0 `i `b ]
-"116
-[; ;user_app.c: 116:         }
-}
-[e :U 2278 ]
-"117
-[; ;user_app.c: 117:         if((0x04 & u32Counter) != 0x00)
-[e $ ! != & -> -> -> 4 `i `l `ul _u32Counter -> -> -> 0 `i `l `ul 2279  ]
-"118
-[; ;user_app.c: 118:         {
-{
-"119
-[; ;user_app.c: 119:             LATA2 = 0x01;
-[e = _LATA2 -> -> 1 `i `b ]
-"120
-[; ;user_app.c: 120:         }
-}
-[e $U 2280  ]
-"121
-[; ;user_app.c: 121:         else
-[e :U 2279 ]
-"122
-[; ;user_app.c: 122:         {
-{
-"123
-[; ;user_app.c: 123:             LATA2 = 0x00;
-[e = _LATA2 -> -> 0 `i `b ]
-"124
-[; ;user_app.c: 124:         }
-}
-[e :U 2280 ]
-"125
-[; ;user_app.c: 125:         if((0x08 & u32Counter) != 0x00)
-[e $ ! != & -> -> -> 8 `i `l `ul _u32Counter -> -> -> 0 `i `l `ul 2281  ]
-"126
-[; ;user_app.c: 126:         {
-{
-"127
-[; ;user_app.c: 127:             LATA3 = 0x01;
-[e = _LATA3 -> -> 1 `i `b ]
-"128
-[; ;user_app.c: 128:         }
-}
-[e $U 2282  ]
-"129
-[; ;user_app.c: 129:         else
-[e :U 2281 ]
-"130
-[; ;user_app.c: 130:         {
-{
-"131
-[; ;user_app.c: 131:             LATA3 = 0x00;
-[e = _LATA3 -> -> 0 `i `b ]
-"132
-[; ;user_app.c: 132:         }
-}
-[e :U 2282 ]
-"133
-[; ;user_app.c: 133:         if((0x10 & u32Counter) != 0x00)
-[e $ ! != & -> -> -> 16 `i `l `ul _u32Counter -> -> -> 0 `i `l `ul 2283  ]
-"134
-[; ;user_app.c: 134:         {
-{
-"135
-[; ;user_app.c: 135:             LATA4 = 0x01;
-[e = _LATA4 -> -> 1 `i `b ]
-"136
-[; ;user_app.c: 136:         }
-}
-[e $U 2284  ]
-"137
-[; ;user_app.c: 137:         else
-[e :U 2283 ]
-"138
-[; ;user_app.c: 138:         {
-{
-"139
-[; ;user_app.c: 139:             LATA4 = 0x00;
-[e = _LATA4 -> -> 0 `i `b ]
-"140
-[; ;user_app.c: 140:         }
-}
-[e :U 2284 ]
-"141
-[; ;user_app.c: 141:         if((0x20 & u32Counter) != 0x00)
-[e $ ! != & -> -> -> 32 `i `l `ul _u32Counter -> -> -> 0 `i `l `ul 2285  ]
-"142
-[; ;user_app.c: 142:         {
-{
-"143
-[; ;user_app.c: 143:             LATA5 = 0x01;
-[e = _LATA5 -> -> 1 `i `b ]
-"144
-[; ;user_app.c: 144:         }
-}
-[e $U 2286  ]
-"145
-[; ;user_app.c: 145:         else
-[e :U 2285 ]
-"146
-[; ;user_app.c: 146:         {
-{
-"147
-[; ;user_app.c: 147:             LATA5 = 0x00;
-[e = _LATA5 -> -> 0 `i `b ]
-"148
-[; ;user_app.c: 148:         }
-}
-[e :U 2286 ]
-"149
-[; ;user_app.c: 149:     }
-}
+"37
+[; ;main.c: 37:   G_u32SystemFlags |= (u32)0x80000000;
+[e =| _G_u32SystemFlags -> -> 2147483648 `ul `Vul ]
+"40
+[; ;main.c: 40:   ClockSetup();
+[e ( _ClockSetup ..  ]
+"41
+[; ;main.c: 41:   SysTickSetup();
+[e ( _SysTickSetup ..  ]
+"42
+[; ;main.c: 42:   GpioSetup();
+[e ( _GpioSetup ..  ]
+"47
+[; ;main.c: 47:   UserAppInitialize();
+[e ( _UserAppInitialize ..  ]
+"52
+[; ;main.c: 52:   while(1)
 [e :U 2274 ]
-"150
-[; ;user_app.c: 150: }
-[e :UE 2273 ]
+"53
+[; ;main.c: 53:   {
+{
+"57
+[; ;main.c: 57:     UserAppRun();
+[e ( _UserAppRun ..  ]
+"62
+[; ;main.c: 62:     SystemSleep();
+[e ( _SystemSleep ..  ]
+"65
+[; ;main.c: 65:   }
+}
+[e :U 2273 ]
+[e $U 2274  ]
+[e :U 2275 ]
+"67
+[; ;main.c: 67: }
+[e :UE 2272 ]
 }

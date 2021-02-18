@@ -94,58 +94,62 @@ Promises:
 */
 void UserAppRun(void)
 {
-    for(u8 i = 0x00; i < 0x40; i ++)
+    u32 u32Counter = 0;
+    while(1)
     {
-        if((0x01 & i) != 0x00)
+        if(RB5 == 0x01)
         {
-            LATA0 = 0x01;
+            u32Counter ++;
+            _delay(FCY/4);
+            if((0x01 & u32Counter) != 0x00)
+            {
+                LATA0 = 0x01;
+            }
+            else
+            {
+                LATA0 = 0x00;
+            }
+            if((0x02 & u32Counter) != 0x00)
+            {
+                RA1 = 0x01;
+            }
+            else
+            {
+                LATA1 = 0x00;
+            }
+            if((0x04 & u32Counter) != 0x00)
+            {
+                LATA2 = 0x01;
+            }
+            else
+            {
+                LATA2 = 0x00;
+            }
+            if((0x08 & u32Counter) != 0x00)
+            {
+                LATA3 = 0x01;
+            }
+            else
+            {
+                LATA3 = 0x00;
+            }
+            if((0x10 & u32Counter) != 0x00)
+            {
+                LATA4 = 0x01;
+            }
+            else
+            {
+                LATA4 = 0x00;
+            }
+            if((0x20 & u32Counter) != 0x00)
+            {
+                LATA5 = 0x01;
+            }
+            else
+            {
+                LATA5 = 0x00;
+            }
         }
-        else
-        {
-            LATA0 = 0x00;
-        }
-        if((0x02 & i) != 0x00)
-        {
-            RA1 = 0x01;
-        }
-        else
-        {
-            LATA1 = 0x00;
-        }
-        if((0x04 & i) != 0x00)
-        {
-            LATA2 = 0x01;
-        }
-        else
-        {
-            LATA2 = 0x00;
-        }
-        if((0x08 & i) != 0x00)
-        {
-            LATA3 = 0x01;
-        }
-        else
-        {
-            LATA3 = 0x00;
-        }
-        if((0x10 & i) != 0x00)
-        {
-            LATA4 = 0x01;
-        }
-        else
-        {
-            LATA4 = 0x00;
-        }
-        if((0x20 & i) != 0x00)
-        {
-            LATA5 = 0x01;
-        }
-        else
-        {
-            LATA5 = 0x00;
-        }
-        u32 u32counter = FCY/4; //creates a delay time of roughly 250ms
-        _delay(u32counter);
     }
 } /* end UserAppRun */
 

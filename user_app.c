@@ -94,13 +94,64 @@ Promises:
 */
 void UserAppRun(void)
 {
-    u32 u32Counter = 0;
+    static u32 u32Counter = 0;
     while(1)
     {
         if(RB5 == 0x01)
         {
+            
             u32Counter ++;
-            _delay(FCY/4);
+            //_delay(FCY/4);
+            
+            if((0x01 & u32Counter) != 0x00)
+            {
+                LATA0 = 0x01;
+            }
+            else
+            {
+                LATA0 = 0x00;
+            }
+            if((0x02 & u32Counter) != 0x00)
+            {
+                RA1 = 0x01;
+            }
+            else
+            {
+                LATA1 = 0x00;
+            }
+            if((0x04 & u32Counter) != 0x00)
+            {
+                LATA2 = 0x01;
+            }
+            else
+            {
+                LATA2 = 0x00;
+            }
+            if((0x08 & u32Counter) != 0x00)
+            {
+                LATA3 = 0x01;
+            }
+            else
+            {
+                LATA3 = 0x00;
+            }
+            if((0x10 & u32Counter) != 0x00)
+            {
+                LATA4 = 0x01;
+            }
+            else
+            {
+                LATA4 = 0x00;
+            }
+            if((0x20 & u32Counter) != 0x00)
+            {
+                LATA5 = 0x01;
+            }
+            else
+            {
+                LATA5 = 0x00;
+            }  u32Counter ++;
+
             if((0x01 & u32Counter) != 0x00)
             {
                 LATA0 = 0x01;
@@ -149,6 +200,7 @@ void UserAppRun(void)
             {
                 LATA5 = 0x00;
             }
+         
         }
     }
 } /* end UserAppRun */

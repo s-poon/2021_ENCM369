@@ -2,7 +2,11 @@ Version 4.0 HI-TECH Software Intermediate Code
 "54044 D:/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h
 [; ;D:/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h: 54044: extern volatile __bit RB5 __attribute__((address(0x267D)));
 [v _RB5 `Vb ~T0 @X0 0 e@9853 ]
-"52160
+[v F183 `(v ~T0 @X0 1 tf1`ul ]
+"12 D:/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\builtins.h
+[v __delay `JF183 ~T0 @X0 0 e ]
+[p i __delay ]
+"52160 D:/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h
 [; ;D:/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h: 52160: extern volatile __bit LATA0 __attribute__((address(0x25F0)));
 [v _LATA0 `Vb ~T0 @X0 0 e@9712 ]
 "53756
@@ -2572,175 +2576,347 @@ Version 4.0 HI-TECH Software Intermediate Code
 [v _u32Counter `ul ~T0 @X0 1 a ]
 [e = _u32Counter -> -> -> 0 `i `l `ul ]
 "98
-[; ;user_app.c: 98:     if(RB5 == 0x01)
-[e $ ! == -> _RB5 `i -> 1 `i 2274  ]
+[; ;user_app.c: 98:     while(1)
+[e :U 2275 ]
 "99
 [; ;user_app.c: 99:     {
 {
 "100
-[; ;user_app.c: 100:         u32Counter ++;
-[e ++ _u32Counter -> -> -> 1 `i `l `ul ]
+[; ;user_app.c: 100:         if(RB5 == 0x01)
+[e $ ! == -> _RB5 `i -> 1 `i 2277  ]
 "101
-[; ;user_app.c: 101:         if((0x01 & u32Counter) != 0x00)
-[e $ ! != & -> -> -> 1 `i `l `ul _u32Counter -> -> -> 0 `i `l `ul 2275  ]
-"102
-[; ;user_app.c: 102:         {
+[; ;user_app.c: 101:         {
 {
+"102
+[; ;user_app.c: 102:             _delay((u32)64000000/4/4);
+[e ( __delay (1 / / -> -> 64000000 `l `ul -> -> -> 4 `i `l `ul -> -> -> 4 `i `l `ul ]
 "103
-[; ;user_app.c: 103:             LATA0 = 0x01;
-[e = _LATA0 -> -> 1 `i `b ]
-"104
-[; ;user_app.c: 104:         }
-}
-[e $U 2276  ]
+[; ;user_app.c: 103:             u32Counter ++;
+[e ++ _u32Counter -> -> -> 1 `i `l `ul ]
 "105
-[; ;user_app.c: 105:         else
-[e :U 2275 ]
+[; ;user_app.c: 105:             if((0x01 & u32Counter) != 0x00)
+[e $ ! != & -> -> -> 1 `i `l `ul _u32Counter -> -> -> 0 `i `l `ul 2278  ]
 "106
-[; ;user_app.c: 106:         {
+[; ;user_app.c: 106:             {
 {
 "107
-[; ;user_app.c: 107:             LATA0 = 0x00;
-[e = _LATA0 -> -> 0 `i `b ]
+[; ;user_app.c: 107:                 LATA0 = 0x01;
+[e = _LATA0 -> -> 1 `i `b ]
 "108
-[; ;user_app.c: 108:         }
+[; ;user_app.c: 108:             }
 }
-[e :U 2276 ]
+[e $U 2279  ]
 "109
-[; ;user_app.c: 109:         if((0x02 & u32Counter) != 0x00)
-[e $ ! != & -> -> -> 2 `i `l `ul _u32Counter -> -> -> 0 `i `l `ul 2277  ]
+[; ;user_app.c: 109:             else
+[e :U 2278 ]
 "110
-[; ;user_app.c: 110:         {
+[; ;user_app.c: 110:             {
 {
 "111
-[; ;user_app.c: 111:             RA1 = 0x01;
-[e = _RA1 -> -> 1 `i `b ]
+[; ;user_app.c: 111:                 LATA0 = 0x00;
+[e = _LATA0 -> -> 0 `i `b ]
 "112
-[; ;user_app.c: 112:         }
+[; ;user_app.c: 112:             }
 }
-[e $U 2278  ]
+[e :U 2279 ]
 "113
-[; ;user_app.c: 113:         else
-[e :U 2277 ]
+[; ;user_app.c: 113:             if((0x02 & u32Counter) != 0x00)
+[e $ ! != & -> -> -> 2 `i `l `ul _u32Counter -> -> -> 0 `i `l `ul 2280  ]
 "114
-[; ;user_app.c: 114:         {
+[; ;user_app.c: 114:             {
 {
 "115
-[; ;user_app.c: 115:             LATA1 = 0x00;
-[e = _LATA1 -> -> 0 `i `b ]
+[; ;user_app.c: 115:                 RA1 = 0x01;
+[e = _RA1 -> -> 1 `i `b ]
 "116
-[; ;user_app.c: 116:         }
+[; ;user_app.c: 116:             }
 }
-[e :U 2278 ]
+[e $U 2281  ]
 "117
-[; ;user_app.c: 117:         if((0x04 & u32Counter) != 0x00)
-[e $ ! != & -> -> -> 4 `i `l `ul _u32Counter -> -> -> 0 `i `l `ul 2279  ]
+[; ;user_app.c: 117:             else
+[e :U 2280 ]
 "118
-[; ;user_app.c: 118:         {
+[; ;user_app.c: 118:             {
 {
 "119
-[; ;user_app.c: 119:             LATA2 = 0x01;
-[e = _LATA2 -> -> 1 `i `b ]
+[; ;user_app.c: 119:                 LATA1 = 0x00;
+[e = _LATA1 -> -> 0 `i `b ]
 "120
-[; ;user_app.c: 120:         }
+[; ;user_app.c: 120:             }
 }
-[e $U 2280  ]
+[e :U 2281 ]
 "121
-[; ;user_app.c: 121:         else
-[e :U 2279 ]
+[; ;user_app.c: 121:             if((0x04 & u32Counter) != 0x00)
+[e $ ! != & -> -> -> 4 `i `l `ul _u32Counter -> -> -> 0 `i `l `ul 2282  ]
 "122
-[; ;user_app.c: 122:         {
+[; ;user_app.c: 122:             {
 {
 "123
-[; ;user_app.c: 123:             LATA2 = 0x00;
-[e = _LATA2 -> -> 0 `i `b ]
+[; ;user_app.c: 123:                 LATA2 = 0x01;
+[e = _LATA2 -> -> 1 `i `b ]
 "124
-[; ;user_app.c: 124:         }
+[; ;user_app.c: 124:             }
 }
-[e :U 2280 ]
+[e $U 2283  ]
 "125
-[; ;user_app.c: 125:         if((0x08 & u32Counter) != 0x00)
-[e $ ! != & -> -> -> 8 `i `l `ul _u32Counter -> -> -> 0 `i `l `ul 2281  ]
+[; ;user_app.c: 125:             else
+[e :U 2282 ]
 "126
-[; ;user_app.c: 126:         {
+[; ;user_app.c: 126:             {
 {
 "127
-[; ;user_app.c: 127:             LATA3 = 0x01;
-[e = _LATA3 -> -> 1 `i `b ]
+[; ;user_app.c: 127:                 LATA2 = 0x00;
+[e = _LATA2 -> -> 0 `i `b ]
 "128
-[; ;user_app.c: 128:         }
+[; ;user_app.c: 128:             }
 }
-[e $U 2282  ]
+[e :U 2283 ]
 "129
-[; ;user_app.c: 129:         else
-[e :U 2281 ]
+[; ;user_app.c: 129:             if((0x08 & u32Counter) != 0x00)
+[e $ ! != & -> -> -> 8 `i `l `ul _u32Counter -> -> -> 0 `i `l `ul 2284  ]
 "130
-[; ;user_app.c: 130:         {
+[; ;user_app.c: 130:             {
 {
 "131
-[; ;user_app.c: 131:             LATA3 = 0x00;
-[e = _LATA3 -> -> 0 `i `b ]
+[; ;user_app.c: 131:                 LATA3 = 0x01;
+[e = _LATA3 -> -> 1 `i `b ]
 "132
-[; ;user_app.c: 132:         }
+[; ;user_app.c: 132:             }
 }
-[e :U 2282 ]
+[e $U 2285  ]
 "133
-[; ;user_app.c: 133:         if((0x10 & u32Counter) != 0x00)
-[e $ ! != & -> -> -> 16 `i `l `ul _u32Counter -> -> -> 0 `i `l `ul 2283  ]
+[; ;user_app.c: 133:             else
+[e :U 2284 ]
 "134
-[; ;user_app.c: 134:         {
+[; ;user_app.c: 134:             {
 {
 "135
-[; ;user_app.c: 135:             LATA4 = 0x01;
-[e = _LATA4 -> -> 1 `i `b ]
+[; ;user_app.c: 135:                 LATA3 = 0x00;
+[e = _LATA3 -> -> 0 `i `b ]
 "136
-[; ;user_app.c: 136:         }
+[; ;user_app.c: 136:             }
 }
-[e $U 2284  ]
+[e :U 2285 ]
 "137
-[; ;user_app.c: 137:         else
-[e :U 2283 ]
+[; ;user_app.c: 137:             if((0x10 & u32Counter) != 0x00)
+[e $ ! != & -> -> -> 16 `i `l `ul _u32Counter -> -> -> 0 `i `l `ul 2286  ]
 "138
-[; ;user_app.c: 138:         {
+[; ;user_app.c: 138:             {
 {
 "139
-[; ;user_app.c: 139:             LATA4 = 0x00;
-[e = _LATA4 -> -> 0 `i `b ]
+[; ;user_app.c: 139:                 LATA4 = 0x01;
+[e = _LATA4 -> -> 1 `i `b ]
 "140
-[; ;user_app.c: 140:         }
+[; ;user_app.c: 140:             }
 }
-[e :U 2284 ]
+[e $U 2287  ]
 "141
-[; ;user_app.c: 141:         if((0x20 & u32Counter) != 0x00)
-[e $ ! != & -> -> -> 32 `i `l `ul _u32Counter -> -> -> 0 `i `l `ul 2285  ]
+[; ;user_app.c: 141:             else
+[e :U 2286 ]
 "142
-[; ;user_app.c: 142:         {
+[; ;user_app.c: 142:             {
 {
 "143
-[; ;user_app.c: 143:             LATA5 = 0x01;
-[e = _LATA5 -> -> 1 `i `b ]
+[; ;user_app.c: 143:                 LATA4 = 0x00;
+[e = _LATA4 -> -> 0 `i `b ]
 "144
-[; ;user_app.c: 144:         }
+[; ;user_app.c: 144:             }
 }
-[e $U 2286  ]
+[e :U 2287 ]
 "145
-[; ;user_app.c: 145:         else
-[e :U 2285 ]
+[; ;user_app.c: 145:             if((0x20 & u32Counter) != 0x00)
+[e $ ! != & -> -> -> 32 `i `l `ul _u32Counter -> -> -> 0 `i `l `ul 2288  ]
 "146
-[; ;user_app.c: 146:         {
+[; ;user_app.c: 146:             {
 {
 "147
-[; ;user_app.c: 147:             LATA5 = 0x00;
-[e = _LATA5 -> -> 0 `i `b ]
+[; ;user_app.c: 147:                 LATA5 = 0x01;
+[e = _LATA5 -> -> 1 `i `b ]
 "148
-[; ;user_app.c: 148:         }
+[; ;user_app.c: 148:             }
 }
-[e :U 2286 ]
+[e $U 2289  ]
 "149
-[; ;user_app.c: 149:     }
+[; ;user_app.c: 149:             else
+[e :U 2288 ]
+"150
+[; ;user_app.c: 150:             {
+{
+"151
+[; ;user_app.c: 151:                 LATA5 = 0x00;
+[e = _LATA5 -> -> 0 `i `b ]
+"152
+[; ;user_app.c: 152:             } u32Counter ++;
+}
+[e :U 2289 ]
+[e ++ _u32Counter -> -> -> 1 `i `l `ul ]
+"154
+[; ;user_app.c: 154:             if((0x01 & u32Counter) != 0x00)
+[e $ ! != & -> -> -> 1 `i `l `ul _u32Counter -> -> -> 0 `i `l `ul 2290  ]
+"155
+[; ;user_app.c: 155:             {
+{
+"156
+[; ;user_app.c: 156:                 LATA0 = 0x01;
+[e = _LATA0 -> -> 1 `i `b ]
+"157
+[; ;user_app.c: 157:             }
+}
+[e $U 2291  ]
+"158
+[; ;user_app.c: 158:             else
+[e :U 2290 ]
+"159
+[; ;user_app.c: 159:             {
+{
+"160
+[; ;user_app.c: 160:                 LATA0 = 0x00;
+[e = _LATA0 -> -> 0 `i `b ]
+"161
+[; ;user_app.c: 161:             }
+}
+[e :U 2291 ]
+"162
+[; ;user_app.c: 162:             if((0x02 & u32Counter) != 0x00)
+[e $ ! != & -> -> -> 2 `i `l `ul _u32Counter -> -> -> 0 `i `l `ul 2292  ]
+"163
+[; ;user_app.c: 163:             {
+{
+"164
+[; ;user_app.c: 164:                 RA1 = 0x01;
+[e = _RA1 -> -> 1 `i `b ]
+"165
+[; ;user_app.c: 165:             }
+}
+[e $U 2293  ]
+"166
+[; ;user_app.c: 166:             else
+[e :U 2292 ]
+"167
+[; ;user_app.c: 167:             {
+{
+"168
+[; ;user_app.c: 168:                 LATA1 = 0x00;
+[e = _LATA1 -> -> 0 `i `b ]
+"169
+[; ;user_app.c: 169:             }
+}
+[e :U 2293 ]
+"170
+[; ;user_app.c: 170:             if((0x04 & u32Counter) != 0x00)
+[e $ ! != & -> -> -> 4 `i `l `ul _u32Counter -> -> -> 0 `i `l `ul 2294  ]
+"171
+[; ;user_app.c: 171:             {
+{
+"172
+[; ;user_app.c: 172:                 LATA2 = 0x01;
+[e = _LATA2 -> -> 1 `i `b ]
+"173
+[; ;user_app.c: 173:             }
+}
+[e $U 2295  ]
+"174
+[; ;user_app.c: 174:             else
+[e :U 2294 ]
+"175
+[; ;user_app.c: 175:             {
+{
+"176
+[; ;user_app.c: 176:                 LATA2 = 0x00;
+[e = _LATA2 -> -> 0 `i `b ]
+"177
+[; ;user_app.c: 177:             }
+}
+[e :U 2295 ]
+"178
+[; ;user_app.c: 178:             if((0x08 & u32Counter) != 0x00)
+[e $ ! != & -> -> -> 8 `i `l `ul _u32Counter -> -> -> 0 `i `l `ul 2296  ]
+"179
+[; ;user_app.c: 179:             {
+{
+"180
+[; ;user_app.c: 180:                 LATA3 = 0x01;
+[e = _LATA3 -> -> 1 `i `b ]
+"181
+[; ;user_app.c: 181:             }
+}
+[e $U 2297  ]
+"182
+[; ;user_app.c: 182:             else
+[e :U 2296 ]
+"183
+[; ;user_app.c: 183:             {
+{
+"184
+[; ;user_app.c: 184:                 LATA3 = 0x00;
+[e = _LATA3 -> -> 0 `i `b ]
+"185
+[; ;user_app.c: 185:             }
+}
+[e :U 2297 ]
+"186
+[; ;user_app.c: 186:             if((0x10 & u32Counter) != 0x00)
+[e $ ! != & -> -> -> 16 `i `l `ul _u32Counter -> -> -> 0 `i `l `ul 2298  ]
+"187
+[; ;user_app.c: 187:             {
+{
+"188
+[; ;user_app.c: 188:                 LATA4 = 0x01;
+[e = _LATA4 -> -> 1 `i `b ]
+"189
+[; ;user_app.c: 189:             }
+}
+[e $U 2299  ]
+"190
+[; ;user_app.c: 190:             else
+[e :U 2298 ]
+"191
+[; ;user_app.c: 191:             {
+{
+"192
+[; ;user_app.c: 192:                 LATA4 = 0x00;
+[e = _LATA4 -> -> 0 `i `b ]
+"193
+[; ;user_app.c: 193:             }
+}
+[e :U 2299 ]
+"194
+[; ;user_app.c: 194:             if((0x20 & u32Counter) != 0x00)
+[e $ ! != & -> -> -> 32 `i `l `ul _u32Counter -> -> -> 0 `i `l `ul 2300  ]
+"195
+[; ;user_app.c: 195:             {
+{
+"196
+[; ;user_app.c: 196:                 LATA5 = 0x01;
+[e = _LATA5 -> -> 1 `i `b ]
+"197
+[; ;user_app.c: 197:             }
+}
+[e $U 2301  ]
+"198
+[; ;user_app.c: 198:             else
+[e :U 2300 ]
+"199
+[; ;user_app.c: 199:             {
+{
+"200
+[; ;user_app.c: 200:                 LATA5 = 0x00;
+[e = _LATA5 -> -> 0 `i `b ]
+"201
+[; ;user_app.c: 201:             }
+}
+[e :U 2301 ]
+"203
+[; ;user_app.c: 203:         }
+}
+[e :U 2277 ]
+"204
+[; ;user_app.c: 204:     }
 }
 [e :U 2274 ]
-"150
-[; ;user_app.c: 150: }
+[e $U 2275  ]
+[e :U 2276 ]
+"205
+[; ;user_app.c: 205: }
 [e :UE 2273 ]
 }

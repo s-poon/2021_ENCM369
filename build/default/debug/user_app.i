@@ -27315,14 +27315,15 @@ void UserAppInitialize(void)
 # 95 "user_app.c"
 void UserAppRun(void)
 {
-    u32 u32Counter = 0;
+    static u32 u32Counter = 0;
+    u8 u8ButtonLastState = RB5;
+    u8 u8Button;
     while(1)
     {
-        if(RB5 == 0x01)
+        u8Button = RB5;
+        if(u8Button == 0x00 && u8ButtonLastState == 0x01)
         {
-
             u32Counter ++;
-            _delay((u32)64000000/4/4);
             if((0x01 & u32Counter) != 0x00)
             {
                 LATA0 = 0x01;
@@ -27371,7 +27372,7 @@ void UserAppRun(void)
             {
                 LATA5 = 0x00;
             }
-
         }
+        u8ButtonLastState = u8Button;
     }
 }

@@ -27315,14 +27315,15 @@ void UserAppInitialize(void)
 # 95 "user_app.c"
 void UserAppRun(void)
 {
-    u32 u32Counter = 0;
+    static u32 u32Counter = 0;
+
+    u8 u8ButtonLastState = RB5;
     while(1)
     {
-        if(RB5 == 0x01)
+        u u8Button = RB5;
+        if(u8Button == 0x00 && u8ButtonLastState == 0x01)
         {
-            _delay((u32)64000000/4/4);
             u32Counter ++;
-
             if((0x01 & u32Counter) != 0x00)
             {
                 LATA0 = 0x01;
@@ -27333,56 +27334,7 @@ void UserAppRun(void)
             }
             if((0x02 & u32Counter) != 0x00)
             {
-                RA1 = 0x01;
-            }
-            else
-            {
-                LATA1 = 0x00;
-            }
-            if((0x04 & u32Counter) != 0x00)
-            {
-                LATA2 = 0x01;
-            }
-            else
-            {
-                LATA2 = 0x00;
-            }
-            if((0x08 & u32Counter) != 0x00)
-            {
-                LATA3 = 0x01;
-            }
-            else
-            {
-                LATA3 = 0x00;
-            }
-            if((0x10 & u32Counter) != 0x00)
-            {
-                LATA4 = 0x01;
-            }
-            else
-            {
-                LATA4 = 0x00;
-            }
-            if((0x20 & u32Counter) != 0x00)
-            {
-                LATA5 = 0x01;
-            }
-            else
-            {
-                LATA5 = 0x00;
-            } u32Counter ++;
-
-            if((0x01 & u32Counter) != 0x00)
-            {
-                LATA0 = 0x01;
-            }
-            else
-            {
-                LATA0 = 0x00;
-            }
-            if((0x02 & u32Counter) != 0x00)
-            {
-                RA1 = 0x01;
+                LATA1 = 0x01;
             }
             else
             {
@@ -27420,7 +27372,7 @@ void UserAppRun(void)
             {
                 LATA5 = 0x00;
             }
-
         }
+        u8ButtonLastState = RB5;
     }
 }

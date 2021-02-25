@@ -2,11 +2,7 @@ Version 4.0 HI-TECH Software Intermediate Code
 "54044 D:/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h
 [; ;D:/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h: 54044: extern volatile __bit RB5 __attribute__((address(0x267D)));
 [v _RB5 `Vb ~T0 @X0 0 e@9853 ]
-[v F183 `(v ~T0 @X0 1 tf1`ul ]
-"12 D:/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\builtins.h
-[v __delay `JF183 ~T0 @X0 0 e ]
-[p i __delay ]
-"52160 D:/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h
+"52160
 [; ;D:/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h: 52160: extern volatile __bit LATA0 __attribute__((address(0x25F0)));
 [v _LATA0 `Vb ~T0 @X0 0 e@9712 ]
 "52163
@@ -2569,181 +2565,190 @@ Version 4.0 HI-TECH Software Intermediate Code
 [e :U _UserAppRun ]
 [f ]
 "97
-[; ;user_app.c: 97:     u32 u32Counter = 0;
-[v _u32Counter `ul ~T0 @X0 1 a ]
-[e = _u32Counter -> -> -> 0 `i `l `ul ]
+[; ;user_app.c: 97:     static u32 u32Counter = 0;
+[v F15920 `ul ~T0 @X0 1 s u32Counter ]
+[i F15920
+-> -> -> 0 `i `l `ul
+]
 "98
-[; ;user_app.c: 98:     while(1)
-[e :U 2275 ]
+[; ;user_app.c: 98:     u8 u8ButtonLastState = RB5;
+[v _u8ButtonLastState `uc ~T0 @X0 1 a ]
+[e = _u8ButtonLastState -> _RB5 `uc ]
 "99
-[; ;user_app.c: 99:     {
-{
+[; ;user_app.c: 99:     u8 u8Button;
+[v _u8Button `uc ~T0 @X0 1 a ]
 "100
-[; ;user_app.c: 100:         if(RB5 == 0x01)
-[e $ ! == -> _RB5 `i -> 1 `i 2277  ]
+[; ;user_app.c: 100:     while(1)
+[e :U 2275 ]
 "101
-[; ;user_app.c: 101:         {
+[; ;user_app.c: 101:     {
 {
+"102
+[; ;user_app.c: 102:         u8Button = RB5;
+[e = _u8Button -> _RB5 `uc ]
 "103
-[; ;user_app.c: 103:             u32Counter ++;
-[e ++ _u32Counter -> -> -> 1 `i `l `ul ]
+[; ;user_app.c: 103:         if(u8Button == 0x00 && u8ButtonLastState == 0x01)
+[e $ ! && == -> _u8Button `i -> 0 `i == -> _u8ButtonLastState `i -> 1 `i 2277  ]
 "104
-[; ;user_app.c: 104:             _delay((u32)64000000/4/4);
-[e ( __delay (1 / / -> -> 64000000 `l `ul -> -> -> 4 `i `l `ul -> -> -> 4 `i `l `ul ]
-"105
-[; ;user_app.c: 105:             if((0x01 & u32Counter) != 0x00)
-[e $ ! != & -> -> -> 1 `i `l `ul _u32Counter -> -> -> 0 `i `l `ul 2278  ]
-"106
-[; ;user_app.c: 106:             {
+[; ;user_app.c: 104:         {
 {
+"105
+[; ;user_app.c: 105:             u32Counter ++;
+[e ++ F15920 -> -> -> 1 `i `l `ul ]
+"106
+[; ;user_app.c: 106:             if((0x01 & u32Counter) != 0x00)
+[e $ ! != & -> -> -> 1 `i `l `ul F15920 -> -> -> 0 `i `l `ul 2278  ]
 "107
-[; ;user_app.c: 107:                 LATA0 = 0x01;
-[e = _LATA0 -> -> 1 `i `b ]
+[; ;user_app.c: 107:             {
+{
 "108
-[; ;user_app.c: 108:             }
+[; ;user_app.c: 108:                 LATA0 = 0x01;
+[e = _LATA0 -> -> 1 `i `b ]
+"109
+[; ;user_app.c: 109:             }
 }
 [e $U 2279  ]
-"109
-[; ;user_app.c: 109:             else
-[e :U 2278 ]
 "110
-[; ;user_app.c: 110:             {
-{
+[; ;user_app.c: 110:             else
+[e :U 2278 ]
 "111
-[; ;user_app.c: 111:                 LATA0 = 0x00;
-[e = _LATA0 -> -> 0 `i `b ]
+[; ;user_app.c: 111:             {
+{
 "112
-[; ;user_app.c: 112:             }
+[; ;user_app.c: 112:                 LATA0 = 0x00;
+[e = _LATA0 -> -> 0 `i `b ]
+"113
+[; ;user_app.c: 113:             }
 }
 [e :U 2279 ]
-"113
-[; ;user_app.c: 113:             if((0x02 & u32Counter) != 0x00)
-[e $ ! != & -> -> -> 2 `i `l `ul _u32Counter -> -> -> 0 `i `l `ul 2280  ]
 "114
-[; ;user_app.c: 114:             {
-{
+[; ;user_app.c: 114:             if((0x02 & u32Counter) != 0x00)
+[e $ ! != & -> -> -> 2 `i `l `ul F15920 -> -> -> 0 `i `l `ul 2280  ]
 "115
-[; ;user_app.c: 115:                 LATA1 = 0x01;
-[e = _LATA1 -> -> 1 `i `b ]
+[; ;user_app.c: 115:             {
+{
 "116
-[; ;user_app.c: 116:             }
+[; ;user_app.c: 116:                 LATA1 = 0x01;
+[e = _LATA1 -> -> 1 `i `b ]
+"117
+[; ;user_app.c: 117:             }
 }
 [e $U 2281  ]
-"117
-[; ;user_app.c: 117:             else
-[e :U 2280 ]
 "118
-[; ;user_app.c: 118:             {
-{
+[; ;user_app.c: 118:             else
+[e :U 2280 ]
 "119
-[; ;user_app.c: 119:                 LATA1 = 0x00;
-[e = _LATA1 -> -> 0 `i `b ]
+[; ;user_app.c: 119:             {
+{
 "120
-[; ;user_app.c: 120:             }
+[; ;user_app.c: 120:                 LATA1 = 0x00;
+[e = _LATA1 -> -> 0 `i `b ]
+"121
+[; ;user_app.c: 121:             }
 }
 [e :U 2281 ]
-"121
-[; ;user_app.c: 121:             if((0x04 & u32Counter) != 0x00)
-[e $ ! != & -> -> -> 4 `i `l `ul _u32Counter -> -> -> 0 `i `l `ul 2282  ]
 "122
-[; ;user_app.c: 122:             {
-{
+[; ;user_app.c: 122:             if((0x04 & u32Counter) != 0x00)
+[e $ ! != & -> -> -> 4 `i `l `ul F15920 -> -> -> 0 `i `l `ul 2282  ]
 "123
-[; ;user_app.c: 123:                 LATA2 = 0x01;
-[e = _LATA2 -> -> 1 `i `b ]
+[; ;user_app.c: 123:             {
+{
 "124
-[; ;user_app.c: 124:             }
+[; ;user_app.c: 124:                 LATA2 = 0x01;
+[e = _LATA2 -> -> 1 `i `b ]
+"125
+[; ;user_app.c: 125:             }
 }
 [e $U 2283  ]
-"125
-[; ;user_app.c: 125:             else
-[e :U 2282 ]
 "126
-[; ;user_app.c: 126:             {
-{
+[; ;user_app.c: 126:             else
+[e :U 2282 ]
 "127
-[; ;user_app.c: 127:                 LATA2 = 0x00;
-[e = _LATA2 -> -> 0 `i `b ]
+[; ;user_app.c: 127:             {
+{
 "128
-[; ;user_app.c: 128:             }
+[; ;user_app.c: 128:                 LATA2 = 0x00;
+[e = _LATA2 -> -> 0 `i `b ]
+"129
+[; ;user_app.c: 129:             }
 }
 [e :U 2283 ]
-"129
-[; ;user_app.c: 129:             if((0x08 & u32Counter) != 0x00)
-[e $ ! != & -> -> -> 8 `i `l `ul _u32Counter -> -> -> 0 `i `l `ul 2284  ]
 "130
-[; ;user_app.c: 130:             {
-{
+[; ;user_app.c: 130:             if((0x08 & u32Counter) != 0x00)
+[e $ ! != & -> -> -> 8 `i `l `ul F15920 -> -> -> 0 `i `l `ul 2284  ]
 "131
-[; ;user_app.c: 131:                 LATA3 = 0x01;
-[e = _LATA3 -> -> 1 `i `b ]
+[; ;user_app.c: 131:             {
+{
 "132
-[; ;user_app.c: 132:             }
+[; ;user_app.c: 132:                 LATA3 = 0x01;
+[e = _LATA3 -> -> 1 `i `b ]
+"133
+[; ;user_app.c: 133:             }
 }
 [e $U 2285  ]
-"133
-[; ;user_app.c: 133:             else
-[e :U 2284 ]
 "134
-[; ;user_app.c: 134:             {
-{
+[; ;user_app.c: 134:             else
+[e :U 2284 ]
 "135
-[; ;user_app.c: 135:                 LATA3 = 0x00;
-[e = _LATA3 -> -> 0 `i `b ]
+[; ;user_app.c: 135:             {
+{
 "136
-[; ;user_app.c: 136:             }
+[; ;user_app.c: 136:                 LATA3 = 0x00;
+[e = _LATA3 -> -> 0 `i `b ]
+"137
+[; ;user_app.c: 137:             }
 }
 [e :U 2285 ]
-"137
-[; ;user_app.c: 137:             if((0x10 & u32Counter) != 0x00)
-[e $ ! != & -> -> -> 16 `i `l `ul _u32Counter -> -> -> 0 `i `l `ul 2286  ]
 "138
-[; ;user_app.c: 138:             {
-{
+[; ;user_app.c: 138:             if((0x10 & u32Counter) != 0x00)
+[e $ ! != & -> -> -> 16 `i `l `ul F15920 -> -> -> 0 `i `l `ul 2286  ]
 "139
-[; ;user_app.c: 139:                 LATA4 = 0x01;
-[e = _LATA4 -> -> 1 `i `b ]
+[; ;user_app.c: 139:             {
+{
 "140
-[; ;user_app.c: 140:             }
+[; ;user_app.c: 140:                 LATA4 = 0x01;
+[e = _LATA4 -> -> 1 `i `b ]
+"141
+[; ;user_app.c: 141:             }
 }
 [e $U 2287  ]
-"141
-[; ;user_app.c: 141:             else
-[e :U 2286 ]
 "142
-[; ;user_app.c: 142:             {
-{
+[; ;user_app.c: 142:             else
+[e :U 2286 ]
 "143
-[; ;user_app.c: 143:                 LATA4 = 0x00;
-[e = _LATA4 -> -> 0 `i `b ]
+[; ;user_app.c: 143:             {
+{
 "144
-[; ;user_app.c: 144:             }
+[; ;user_app.c: 144:                 LATA4 = 0x00;
+[e = _LATA4 -> -> 0 `i `b ]
+"145
+[; ;user_app.c: 145:             }
 }
 [e :U 2287 ]
-"145
-[; ;user_app.c: 145:             if((0x20 & u32Counter) != 0x00)
-[e $ ! != & -> -> -> 32 `i `l `ul _u32Counter -> -> -> 0 `i `l `ul 2288  ]
 "146
-[; ;user_app.c: 146:             {
-{
+[; ;user_app.c: 146:             if((0x20 & u32Counter) != 0x00)
+[e $ ! != & -> -> -> 32 `i `l `ul F15920 -> -> -> 0 `i `l `ul 2288  ]
 "147
-[; ;user_app.c: 147:                 LATA5 = 0x01;
-[e = _LATA5 -> -> 1 `i `b ]
+[; ;user_app.c: 147:             {
+{
 "148
-[; ;user_app.c: 148:             }
+[; ;user_app.c: 148:                 LATA5 = 0x01;
+[e = _LATA5 -> -> 1 `i `b ]
+"149
+[; ;user_app.c: 149:             }
 }
 [e $U 2289  ]
-"149
-[; ;user_app.c: 149:             else
-[e :U 2288 ]
 "150
-[; ;user_app.c: 150:             {
-{
+[; ;user_app.c: 150:             else
+[e :U 2288 ]
 "151
-[; ;user_app.c: 151:                 LATA5 = 0x00;
-[e = _LATA5 -> -> 0 `i `b ]
+[; ;user_app.c: 151:             {
+{
 "152
-[; ;user_app.c: 152:             }
+[; ;user_app.c: 152:                 LATA5 = 0x00;
+[e = _LATA5 -> -> 0 `i `b ]
+"153
+[; ;user_app.c: 153:             }
 }
 [e :U 2289 ]
 "154
@@ -2751,12 +2756,15 @@ Version 4.0 HI-TECH Software Intermediate Code
 }
 [e :U 2277 ]
 "155
-[; ;user_app.c: 155:     }
+[; ;user_app.c: 155:         u8ButtonLastState = u8Button;
+[e = _u8ButtonLastState _u8Button ]
+"156
+[; ;user_app.c: 156:     }
 }
 [e :U 2274 ]
 [e $U 2275  ]
 [e :U 2276 ]
-"156
-[; ;user_app.c: 156: }
+"157
+[; ;user_app.c: 157: }
 [e :UE 2273 ]
 }

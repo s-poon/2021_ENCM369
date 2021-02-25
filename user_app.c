@@ -89,17 +89,17 @@ Requires:
 - NONE
 
 Promises:
-- A 6-bit counter that will only use RA0-RA5
+- A 6-bit counter that will only use RA0-RA5 and is incremented by a button
 
 */
 void UserAppRun(void)
 {
     static u32 u32Counter = 0;  //a 32-bit counter variable
-    u8 u8ButtonLastState = RB5; //
-    u8 u8Button;
+    u8 u8ButtonLastState = RB5; //gets the initial state of the button
+    u8 u8Button;                //gets current button state
     while(1)
     { 
-        u8Button = RB5;
+        u8Button = RB5;         
         if(u8Button == 0x00 && u8ButtonLastState == 0x01)
         {
             u32Counter ++;

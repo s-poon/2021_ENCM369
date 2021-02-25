@@ -94,8 +94,8 @@ Promises:
 */
 void UserAppRun(void)
 {
-    static u32 u32Counter = 0;
-    u8 u8ButtonLastState = RB5;
+    static u32 u32Counter = 0;  //a 32-bit counter variable
+    u8 u8ButtonLastState = RB5; //
     u8 u8Button;
     while(1)
     { 

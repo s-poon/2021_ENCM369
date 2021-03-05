@@ -27289,6 +27289,7 @@ void SystemSleep(void);
 # 27 "./user_app.h"
 void UserAppInitialize(void);
 void UserAppRun(void);
+void TimeXus(u16 u16Input);
 # 106 "./configuration.h" 2
 # 26 "user_app.c" 2
 
@@ -27309,72 +27310,45 @@ extern volatile u32 G_u32SystemFlags;
 # 76 "user_app.c"
 void UserAppInitialize(void)
 {
+    LATA = 0x80;
     T0CON0 = 0x90;
     T0CON1 = 0x54;
 
 }
-# 96 "user_app.c"
-void UserAppRun(void)
-{
-    u8 u8Counter = 0;
-
-    if((0x01 & u8Counter) != 0x00)
-    {
-        LATA0 = 0x01;
-    }
-    else
-    {
-        LATA0 = 0x00;
-    }
-    if((0x02 & u8Counter) != 0x00)
-    {
-        RA1 = 0x01;
-    }
-    else
-    {
-        LATA1 = 0x00;
-    }
-    if((0x04 & u8Counter) != 0x00)
-    {
-        LATA2 = 0x01;
-    }
-    else
-    {
-        LATA2 = 0x00;
-    }
-    if((0x08 & u8Counter) != 0x00)
-    {
-        LATA3 = 0x01;
-    }
-    else
-    {
-        LATA3 = 0x00;
-    }
-    if((0x10 & u8Counter) != 0x00)
-    {
-        LATA4 = 0x01;
-    }
-    else
-    {
-        LATA4 = 0x00;
-    }
-    if((0x20 & u8Counter) != 0x00)
-    {
-        LATA5 = 0x01;
-    }
-    else
-    {
-        LATA5 = 0x00;
-    }
-}
-# 166 "user_app.c"
+# 101 "user_app.c"
 void TimeXus(u16 u16Input)
 {
-    if(u16Input < 1 || u16Input > 35535)
-    {
-        break;
-    }
 
-    MD16 = 1;
+    T0CON0 &= 0x7F;
+
+
+    u16 u16TimeLeft = 0xFFFF - u16Input;
+    TMR0H = u16TimeLeft >> 8;
+    TMR0L = u16TimeLeft & 0x0F;
+
+
+    PIR3 &= 0x7F;
+    T0CON0 += 0x80;
+}
+# 129 "user_app.c"
+void UserAppRun(void)
+{
+    static u16 u16counter = 0x0000;
+    u8 au8Pattern[8] = {0x20, 0x08, 0x02, 0x10, 0x04, 0x01, 0x2A, 0x15};
+    static u8 u8counter = 0x00;
+    if(u16counter < 0x01F4)
+    {
+        u16counter += 0x0001;
+    }
+    else
+    {
+        LATA = au8Pattern[u8counter];
+        u8counter += 0x01;
+        if(u8counter == 0x08)
+        {
+            u8counter = 0x00;
+        }
+        u16counter = 0x0000;
+    }
 
 }

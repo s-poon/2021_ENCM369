@@ -75,11 +75,45 @@ Promises:
 */
 void UserAppInitialize(void)
 {
-
+    LATA = 0x80;
+    T0CON0 = 0x90;
+    T0CON1 = 0x54;
     
 } /* end UserAppInitialize() */
 
-  
+
+/*----------------------------------------------------------------------------------------------------------------------
+@fn void TimeXus(INPUT_PARAMETER)
+ * Sets Timer0 to count u16Microseconds_
+
+@brief Creates a delay of INPUT_PARAMETER seconds
+
+Requires:
+- Timer0 configured such that each timer tick is 1 microsecond
+- INPUT_PARAMETER_ is the value in microseconds to time from 1 to 65535
+
+Promises:
+- Pre-loads TMR0H:L to clock out desired period
+- TMR0IF cleared
+- Timer 0 enabled
+*/
+
+void TimeXus(u16 u16Input)
+{
+    /*Disable the timer during configuration*/
+    T0CON0 &= 0x7F;
+    
+    /*Preload TMR0H and TMR0L based on u16TimeXus*/
+    u16 u16TimeLeft = 0xFFFF - u16Input;
+    TMR0H = u16TimeLeft >> 8;
+    TMR0L = u16TimeLeft & 0x0F;
+    
+    /*Clear TMR0IF and enable TImer 0*/
+    PIR3 &= 0x7F;
+    T0CON0 += 0x80;
+} /*end TimeXus()*/
+
+
 /*!----------------------------------------------------------------------------------------------------------------------
 @fn void UserAppRun(void)
 
@@ -94,59 +128,24 @@ Promises:
 */
 void UserAppRun(void)
 {
-    for(u8 i = 0x00; i < 0x40; i ++)
+    static u16 u16counter = 0x0000; //counter to monitor time in microseconds passed, starts at 0
+    u8 au8Pattern[8] = {0x20, 0x08, 0x02, 0x10, 0x04, 0x01, 0x2A, 0x15}; //light pattern
+    static u8 u8counter = 0x00;     //counter to access various array elements, starts at 0
+    if(u16counter < 0x01F4)         // 0x01F4 = 500
     {
-        if((0x01 & i) != 0x00)
-        {
-            LATA0 = 0x01;
-        }
-        else
-        {
-            LATA0 = 0x00;
-        }
-        if((0x02 & i) != 0x00)
-        {
-            RA1 = 0x01;
-        }
-        else
-        {
-            LATA1 = 0x00;
-        }
-        if((0x04 & i) != 0x00)
-        {
-            LATA2 = 0x01;
-        }
-        else
-        {
-            LATA2 = 0x00;
-        }
-        if((0x08 & i) != 0x00)
-        {
-            LATA3 = 0x01;
-        }
-        else
-        {
-            LATA3 = 0x00;
-        }
-        if((0x10 & i) != 0x00)
-        {
-            LATA4 = 0x01;
-        }
-        else
-        {
-            LATA4 = 0x00;
-        }
-        if((0x20 & i) != 0x00)
-        {
-            LATA5 = 0x01;
-        }
-        else
-        {
-            LATA5 = 0x00;
-        }
-        u32 u32counter = FCY/4; //creates a delay time of roughly 250ms
-        _delay(u32counter);
+        u16counter += 0x0001;       //increment u16counter by 1
     }
+    else
+    {
+        LATA = au8Pattern[u8counter]; //turns on pins based on value of u8counter
+        u8counter += 0x01;            //increment u8counter by 1
+        if(u8counter == 0x08)         //once all array elements have been accessed, go back to beginning
+        {
+            u8counter = 0x00;         
+        }
+        u16counter = 0x0000;
+    }
+    
 } /* end UserAppRun */
 
 

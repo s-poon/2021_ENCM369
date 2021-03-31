@@ -31,42 +31,34 @@
 [v _ClockSetup ClockSetup `(v  1 e 1 0 ]
 "89
 [v _GpioSetup GpioSetup `(v  1 e 1 0 ]
-"110
+"111
 [v _SysTickSetup SysTickSetup `(v  1 e 1 0 ]
-"132
-[v _SystemSleep SystemSleep `(v  1 e 1 0 ]
-"35 D:\GitHub\2021_ENCM369\main.c
+"36 D:\GitHub\2021_ENCM369\main.c
 [v _main main `(v  1 e 1 0 ]
 "76 D:\GitHub\2021_ENCM369\user_app.c
 [v _UserAppInitialize UserAppInitialize `(v  1 e 1 0 ]
-"97
+"130
 [v _UserAppRun UserAppRun `(v  1 e 1 0 ]
-"22627 D:/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h
+"3158 D:/Microchip/MPLABX/v5_45/packs/Microchip/PIC18F-Q_DFP/1.8.154/xc8\pic\include\proc\pic18f27q43.h
+[v _DAC1DATL DAC1DATL `VEuc  1 e 1 @125 ]
+"3236
+[v _DAC1CON DAC1CON `VEuc  1 e 1 @127 ]
+"22235
+[v _TMR0L TMR0L `VEuc  1 e 1 @792 ]
+"22373
+[v _TMR0H TMR0H `VEuc  1 e 1 @793 ]
+"22627
 [v _T0CON0 T0CON0 `VEuc  1 e 1 @794 ]
 "22725
 [v _T0CON1 T0CON1 `VEuc  1 e 1 @795 ]
 "37918
 [v _ANSELA ANSELA `VEuc  1 e 1 @1024 ]
+"44870
+[v _PIR3 PIR3 `VEuc  1 e 1 @1201 ]
 "45585
 [v _LATA LATA `VEuc  1 e 1 @1214 ]
 "45840
 [v _TRISA TRISA `VEuc  1 e 1 @1222 ]
-"52160
-[v _LATA0 LATA0 `VEb  1 e 0 @9712 ]
-"52163
-[v _LATA1 LATA1 `VEb  1 e 0 @9713 ]
-"52166
-[v _LATA2 LATA2 `VEb  1 e 0 @9714 ]
-"52169
-[v _LATA3 LATA3 `VEb  1 e 0 @9715 ]
-"52172
-[v _LATA4 LATA4 `VEb  1 e 0 @9716 ]
-"52175
-[v _LATA5 LATA5 `VEb  1 e 0 @9717 ]
-"53756
-[v _RA1 RA1 `VEb  1 e 0 @9841 ]
-"53900
-[v _RA7 RA7 `VEb  1 e 0 @9847 ]
 "14 D:\GitHub\2021_ENCM369\main.c
 [v _G_u32SystemTime1ms G_u32SystemTime1ms `VEul  1 e 4 0 ]
 "15
@@ -75,35 +67,32 @@
 [v _G_u32SystemFlags G_u32SystemFlags `VEul  1 e 4 0 ]
 "33 D:\GitHub\2021_ENCM369\user_app.c
 [v _G_u8UserAppFlags G_u8UserAppFlags `VEuc  1 e 1 0 ]
-"35 D:\GitHub\2021_ENCM369\main.c
+"41
+[v _G_u8RisingEdge G_u8RisingEdge `VEuc  1 e 1 0 ]
+"36 D:\GitHub\2021_ENCM369\main.c
 [v _main main `(v  1 e 1 0 ]
 {
-"67
+"66
 } 0
-"97 D:\GitHub\2021_ENCM369\user_app.c
+"130 D:\GitHub\2021_ENCM369\user_app.c
 [v _UserAppRun UserAppRun `(v  1 e 1 0 ]
 {
-"149
+"175
 } 0
 "76
 [v _UserAppInitialize UserAppInitialize `(v  1 e 1 0 ]
 {
-"82
+"83
 } 0
-"132 D:\GitHub\2021_ENCM369\encm369_pic18.c
-[v _SystemSleep SystemSleep `(v  1 e 1 0 ]
-{
-"135
-} 0
-"110
+"111 D:\GitHub\2021_ENCM369\encm369_pic18.c
 [v _SysTickSetup SysTickSetup `(v  1 e 1 0 ]
 {
-"115
+"116
 } 0
 "89
 [v _GpioSetup GpioSetup `(v  1 e 1 0 ]
 {
-"95
+"96
 } 0
 "70
 [v _ClockSetup ClockSetup `(v  1 e 1 0 ]

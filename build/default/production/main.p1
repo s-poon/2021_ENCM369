@@ -15,9 +15,6 @@ Version 4.0 HI-TECH Software Intermediate Code
 "28
 [; ;./user_app.h: 28: void UserAppRun(void);
 [v _UserAppRun `(v ~T0 @X0 0 ef ]
-"64 ./encm369_pic18.h
-[; ;./encm369_pic18.h: 64: void SystemSleep(void);
-[v _SystemSleep `(v ~T0 @X0 0 ef ]
 "30 ./configuration.h
 [p x FEXTOSC  =  OFF     ]
 "31
@@ -2557,49 +2554,52 @@ Version 4.0 HI-TECH Software Intermediate Code
 [i _G_u32SystemFlags
 -> -> -> 0 `i `l `ul
 ]
+"17
+[; ;main.c: 17: volatile u8 G_u8RisingEdge = 1;
+[v _G_u8RisingEdge `Vuc ~T0 @X0 1 e ]
+[i _G_u8RisingEdge
+-> -> 1 `i `uc
+]
 [v $root$_main `(v ~T0 @X0 0 e ]
-"35
-[; ;main.c: 35: void main(void)
-[v _main `(v ~T0 @X0 1 ef ]
 "36
-[; ;main.c: 36: {
+[; ;main.c: 36: void main(void)
+[v _main `(v ~T0 @X0 1 ef ]
+"37
+[; ;main.c: 37: {
 {
 [e :U _main ]
 [f ]
-"37
-[; ;main.c: 37:   G_u32SystemFlags |= (u32)0x80000000;
+"38
+[; ;main.c: 38:   G_u32SystemFlags |= (u32)0x80000000;
 [e =| _G_u32SystemFlags -> -> 2147483648 `ul `Vul ]
-"40
-[; ;main.c: 40:   ClockSetup();
-[e ( _ClockSetup ..  ]
 "41
-[; ;main.c: 41:   SysTickSetup();
-[e ( _SysTickSetup ..  ]
+[; ;main.c: 41:   ClockSetup();
+[e ( _ClockSetup ..  ]
 "42
-[; ;main.c: 42:   GpioSetup();
+[; ;main.c: 42:   SysTickSetup();
+[e ( _SysTickSetup ..  ]
+"43
+[; ;main.c: 43:   GpioSetup();
 [e ( _GpioSetup ..  ]
-"47
-[; ;main.c: 47:   UserAppInitialize();
+"48
+[; ;main.c: 48:   UserAppInitialize();
 [e ( _UserAppInitialize ..  ]
-"52
-[; ;main.c: 52:   while(1)
-[e :U 2274 ]
 "53
-[; ;main.c: 53:   {
+[; ;main.c: 53:   while(1)
+[e :U 2274 ]
+"54
+[; ;main.c: 54:   {
 {
-"57
-[; ;main.c: 57:     UserAppRun();
+"58
+[; ;main.c: 58:     UserAppRun();
 [e ( _UserAppRun ..  ]
-"62
-[; ;main.c: 62:     SystemSleep();
-[e ( _SystemSleep ..  ]
 "65
 [; ;main.c: 65:   }
 }
 [e :U 2273 ]
 [e $U 2274  ]
 [e :U 2275 ]
-"67
-[; ;main.c: 67: }
+"66
+[; ;main.c: 66: }
 [e :UE 2272 ]
 }

@@ -27293,6 +27293,7 @@ void SystemSleep(void);
 # 27 "./user_app.h"
 void UserAppInitialize(void);
 void UserAppRun(void);
+void TimeXus(u16 u16Input);
 # 106 "./configuration.h" 2
 # 6 "main.c" 2
 
@@ -27306,7 +27307,8 @@ void UserAppRun(void);
 volatile u32 G_u32SystemTime1ms = 0;
 volatile u32 G_u32SystemTime1s = 0;
 volatile u32 G_u32SystemFlags = 0;
-# 35 "main.c"
+volatile u8 G_u8RisingEdge = 1;
+# 36 "main.c"
 void main(void)
 {
   G_u32SystemFlags |= (u32)0x80000000;
@@ -27333,10 +27335,8 @@ void main(void)
 
 
 
-                   ;
-    SystemSleep();
-                  ;
+
+
 
   }
-
 }

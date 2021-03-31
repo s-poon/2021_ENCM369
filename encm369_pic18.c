@@ -91,6 +91,8 @@ void GpioSetup(void)
     LATA = 0x00;    //set pins to off
     TRISA = 0x00;   //set pins to output
     ANSELA = 0x00;  //set pins to digital
+    DAC1CON = 0xA0;
+    //DAC1DATL = 0xFF;
 } /* end GpioSetup() */
 
 
